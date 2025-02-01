@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه خدمات و ارتباطات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .slider {
+            max-width: 800px;
+            margin: 20px auto;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            position: relative;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+        .slide img {
+            width: 800px;
+            height: 500px;
+            display: block;
+        }
+      
+        .next {
+            right: 0;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .services, .contact {
+            margin: 40px auto;
+            max-width: 800px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- اسلایدر -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="6666.jpg" alt="تصویر ۱" width="100px" height="100px">
+            </div>
+            <div class="slide">
+                <img src="6666.jpg" alt="تصویر 2" width="100px" height="100px">
+            </div>
+           
+        </div>
+        <button class="prev" onclick="prevSlide()">&#10094;</button>
+        <button class="next" onclick="nextSlide()">&#10095;</button>
+    </div>
+
+    <!-- بخش خدمات -->
+    <div class="services">
+        <h2>خدمات:</h2>
+        <button class="button" onclick="location.href='https://4gonbadmines.ir/#/auth/login'">فیش حقوقی</button>
+        <button class="button" onclick="location.href='https://ex-eservices.tamin.ir/view/index.html'">بیمه تامین اجتماعی</button>
+        <button class="button" onclick="location.href='https://alborzinsurance.ir/'">بیمه البرز</button>
+        <button class="button" onclick="location.href='https://mespress.ir/'">خبر</button>
+
+    </div>
+
+    <!-- بخش ارتباط -->
+    <div class="contact">
+        <h2>ارتباط:</h2>
+        <button class="button">ارتباط با معدن</button>
+        <button class="button">ارتباط با دفتر کرمان</button>
+    </div>
+      <!-- بخش درباره ما -->
+      <div class="contact">
+        <h2>ارتباط:</h2>
+        <button class="button">ارتباط با معدن</button>
+        <button class="button">ارتباط با دفتر کرمان</button>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(index) {
+            if (index >= totalSlides) slideIndex = 0;
+            if (index < 0) slideIndex = totalSlides - 1;
+            slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            showSlide(slideIndex);
+        }
+
+        function prevSlide() {
+            slideIndex--;
+            showSlide(slideIndex);
+        }
+
+        // تغییر خودکار اسلایدها هر 5 ثانیه
+        setInterval(nextSlide, 5000);
+    </script>
+
+</body>
+</html>
